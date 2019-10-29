@@ -1,2 +1,7 @@
 # element-form-generator
-[WIP] Form generator base on element-schema-form component
+
+Visualization form generator base on [element-schema-form](https://github.com/vueblocks/element-schema-form) component
+
+## License
+
+MIT
