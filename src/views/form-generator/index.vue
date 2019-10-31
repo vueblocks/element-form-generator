@@ -14,7 +14,11 @@
             <el-button size="mini"  @click="resetGlobalStore">重置表单</el-button>
           </div>
         </div>
+        <div class="main-layout__placeholder" v-if="isEmptyForm">
+          <img :src="require('@/assets/icons/empty-area.svg')" />
+        </div>
         <el-form
+          v-else
           :model="formModel"
           :label-position="formSettings.labelPosition"
           :size="formSettings.size"
@@ -84,6 +88,7 @@
 </template>
 
 <script>
+import { isEmpty } from 'lodash'
 import AsidePanel from './aside-panel'
 import ConfigPanel from './config-panel'
 import MainPanel from './main-panel'
@@ -129,7 +134,10 @@ export default {
       'formControl',
       'activeSection',
       'activeProp'
-    ])
+    ]),
+    isEmptyForm () {
+      return isEmpty(this.layoutSections)
+    }
   },
   methods: {
     ...mapActions([
@@ -229,6 +237,7 @@ export default {
     .main-layout {
       height: 100%;
       border: 1px solid @primary;
+      position: relative;
       &__header {
         display: flex;
         justify-content: space-between;
@@ -247,6 +256,16 @@ export default {
           margin: -2px;
           border: 2px solid #fa4;
           border-radius: 4px;
+        }
+      }
+      &__placeholder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        img {
+          width: 100%;
+          height: 33vh;
         }
       }
     }
