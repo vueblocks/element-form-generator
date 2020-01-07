@@ -54,10 +54,18 @@ const BASIC_COMPONENTS = [
   },
   {
     type: 'timeselect',
-    name: '时间选择器',
+    name: '固定时间选择器',
+    value: '',
+    attrs: ['disabled', 'clearable', 'placeholder']
+  },
+  {
+    type: 'timepicker',
+    name: '任意时间选择器',
     value: '',
     attrs: ['disabled', 'clearable', 'placeholder', 'value-format', 'is-range',
-      '*timepicker-range-separator', '*timepicker-start-placeholder', '*timepicker-end-placeholder']
+      '*timepicker-range-separator', '*timepicker-start-placeholder', '*timepicker-end-placeholder',
+      'arrow-control'
+    ]
   },
   {
     type: 'colorpicker',

@@ -253,6 +253,12 @@ export const paramsAttr = {
     associate: 'is-range',
     associateVal: true
   },
+  'arrow-control': {
+    label: '使用箭头',
+    value: false,
+    type: 'boolean',
+    default: false
+  },
   // colorpicker..........
   'show-alpha': {
     label: '透明度',

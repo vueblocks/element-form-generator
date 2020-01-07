@@ -74,9 +74,7 @@ export default {
   async deleteColComp ({ commit, state, dispatch }, { colIndex, newVal, prop }) {
     let { layoutSections, activeSection } = state
     let _list = Immutable.fromJS(layoutSections)
-    console.log(1)
     await dispatch('delModelAndOption', prop)
-    console.log(3)
     commit(types.UPDATE_LAYOUT_SECTIONS, _list.set(activeSection, _list.get(activeSection).set(colIndex, newVal)).toJS())
   },
   // 删除 formModel 和 formOptions 中的 prop
@@ -91,7 +89,6 @@ export default {
       if (_option.has(prop)) {
         commit(types.UPDATE_FORM_OPTIONS, _option.delete(prop).toJS())
       }
-      console.log(2)
       commit(types.UPDATE_ACTIVE_PROP, '')
       resolve()
     })
